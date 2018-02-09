@@ -1,12 +1,26 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var con = mysql.createConnection({
-    host: "qgsserver.database.windows.net",
-    user: "QuinnStratton",
-    password: "drVulter1123"
-});
+var config =
+    {
+        host: 'qgsserver.database.windows.net',
+        user: 'QuinnStratton@qgsserver',
+        password: 'drVulter1123',
+        database: 'Comix',
+        port: 3306,
+        ssl: true
+    };
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-});
+const conn = new mysql.createConnection(config);
+
+conn.connect(
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else
+        {
+            console.log("Connection established.");
+            //queryDatabase();
+        }   
+    });
