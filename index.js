@@ -3,7 +3,7 @@ var dt = require('./datemodule.js');
 
 
 var server = http.createServer(function(request, response) {
-    if (request.url === "/MyInformation") {
+    if (request.url === "/index") {
         response.writeHead(200, {"Content-Type": "text/plain"});
         response.write("other page\n");
         response.end();
