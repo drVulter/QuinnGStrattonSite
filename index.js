@@ -1,6 +1,19 @@
 var http = require('http');
 var dt = require('./datemodule.js');
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: "qgsserver.database.windows.net",
+    user: "QuinnStratton",
+    password: "drVulter1123"
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
+
 var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
