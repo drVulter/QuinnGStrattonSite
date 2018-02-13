@@ -4,15 +4,15 @@
 
   http = require('http');
 
+  port = process.env.port || 1337;
+
   server = http.createServer(req, res)(function() {
     res.writeHeader(200, {
       'Content-Type': 'text/plain'
     });
     res.write('Hello, World!');
-    return res.end();
+    return res.end().listen(port);
   });
-
-  port = process.env.port || 1337;
 
   server.listen(port);
 
